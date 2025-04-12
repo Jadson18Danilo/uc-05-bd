@@ -1,8 +1,11 @@
-import AlunoModel from "../models"; 
+import AlunoModel from "../models/index.js"; 
 
 class AlunoController{
     static async criar(nome, email, matricula, telefone, cod_turma){
         try {
+            if(!nome || !email || !matricula || !telefone){
+                return console.error('Todos os campos devem ser preenchidos!')
+            }
             const aluno = await AlunoModel.criar(nome, email, matricula, telefone, cod_turma)
             console.log('Aluno criado com sucesso!')
             return aluno
@@ -12,6 +15,9 @@ class AlunoController{
     }
     static async editar(nome, email, matricula, telefone, cod_turma){
         try {
+            if(!nome || !email || !matricula || !telefone){
+                return console.error('Todos os campos devem ser preenchidos!')
+            }
             const aluno = await AlunoModel.atualizarAluno(nome, email, matricula, telefone, cod_turma)
             if(aluno.length === 0){
                 return console.error('Aluno não encontrado!')
@@ -66,6 +72,18 @@ class AlunoController{
             console.log('Erro ao listar todos os alunos:', error.message)
         }
     }
+    static async totalAlunos(){
+        try {
+            const total = await AlunoModel.totalAlunos()
+            if(total.length === 0){
+                return console.error('Não há alunos na contagem!')
+            }
+            return total
+        } catch (error) {
+            console.log('Erro ao contar todos os alunos:', error.message)
+        }
+    }
+
 
 }
 

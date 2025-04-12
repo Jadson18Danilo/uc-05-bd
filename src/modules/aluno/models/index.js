@@ -20,8 +20,8 @@ class AlunoModel{
     }
     static async atualizarAluno(nome, email, matricula, telefone, cod_turma){
         const dados = [nome, email, matricula, telefone, cod_turma]
-        const consulta = `update from aluno set nome = $1, matricula = $3, telefone = $4, cod_turma = $5 
-        where email = $2 = returning *`
+        const consulta = `update aluno set nome = $1, matricula = $3, telefone = $4, cod_turma = $5 
+        where email = $2 returning *`
         const resultado = await client.query(consulta, dados)
         return resultado.rows
     }
@@ -36,7 +36,7 @@ class AlunoModel{
     }
     // quantidade de alunos
     static async totalAlunos(){
-        const consulta = `select count(email) as total from aluno `
+        const consulta = `select count(email) as total from aluno`
         const resultado = await client.query(consulta)
         return resultado.rows
     }
