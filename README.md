@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-```
-USUARIO=seu_user
-DATABASE=seu_database
-PORTA=5432
-HOST=seu_host
-SENHA=sua_senha
-```
-=======
 # Sistema de Gerenciamento de Alunos
 
 Este projeto implementa um sistema de gerenciamento de alunos utilizando Node.js e PostgreSQL. O sistema segue o padrão arquitetural MVC (Model-View-Controller), proporcionando uma estrutura organizada para manipulação de dados de alunos.
@@ -143,4 +134,3 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para d
 ## Autor
 
 Desenvolvido como parte do curso de Banco de Dados.
->>>>>>> 0a5195dc2260983ef61eba4a84e9ad6379d2490e
