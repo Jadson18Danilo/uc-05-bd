@@ -25,7 +25,7 @@ class AlunoView {
       matricula,
       telefone,
       cod_turma
-    );
+    ); 
     console.table(aluno);
   }
   static async listarTodos() {

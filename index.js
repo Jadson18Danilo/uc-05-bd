@@ -16,11 +16,8 @@ async function criarTabelas() {
 criarTabelas();
 
 
-
-
 AlunoView.criar();
 AlunoView.listarTodos();
-
 AlunoView.editarAluno();
 AlunoView.deletarAluno();
 AlunoView.totalAlunos();
