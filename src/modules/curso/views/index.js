@@ -1,47 +1,47 @@
-import TurmaController from "../controllers/index.js";
+import CursoController from "../controllers/index.js";
 import PromptSync from "prompt-sync";
 
 const input = PromptSync;
 
-class TurmaView{
+class CursoView{
     static async criar(){
-        const cod_turma = input("Digite o código da turma: ");
-        const nome = input("Digite o nome da turma: ");
-        const turma = await TurmaController.criar(cod_turma, nome);
-        console.table(turma);
+        const cod_curso = input("Digite o código da Curso: ");
+        const nome = input("Digite o nome da Curso: ");
+        const curso = await CursoController.criar(cod_curso, nome);
+        console.table(curso);
     }
 
     static async editar(){
-        const nome = input("Digite o novo nome da turma: ");
-        const turma = await TurmaController.editar(nome);
-        console.table(turma);
+        const nome = input("Digite o novo nome da Curso: ");
+        const curso = await CursoController.editar(nome);
+        console.table(curso);
     }
 
     static async listarTodas(){
-        const turma = await TurmaController.listarTodas();
-        console.table(turma);
+        const curso = await CursoController.listarTodas();
+        console.table(curso);
     }
 
     static async listarPorCodigo(){
-        const cod_turma = input("Digite o código da turma: ");
-        const turma = await TurmaController.listarPorCodigo(cod_turma);
-        console.table(turma);
+        const cod_curso = input("Digite o código da Curso: ");
+        const curso = await CursoController.listarPorCodigo(cod_curso);
+        console.table(curso);
     }
 
     static async deletarTodas(){
-        await TurmaController.deletarTodas();
+        await CursoController.deletarTodas();
     }
 
-    static async deletarTurma(){
-        const cod_turma = input("Digite o código da turma: ");
-        const turma = await TurmaController.deletarTurma(cod_turma);
-        console.table(turma)
+    static async deletarCurso(){
+        const cod_curso = input("Digite o código da Curso: ");
+        const curso = await CursoController.deletarCurso(cod_curso);
+        console.table(curso)
     }
 
-    static async totalTurmas(){
-        const total = await TurmaController.totalTurmas();
+    static async totalCursos(){
+        const total = await CursoController.totalCursos();
         console.table(total);
     }
 }
 
-export default TurmaView;
+export default CursoView;

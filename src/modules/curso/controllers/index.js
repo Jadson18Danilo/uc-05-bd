@@ -1,100 +1,100 @@
-import TurmaModel from "../models/index.js";
+import CursoModel from "../models/index.js";
 
-class TurmaController{
-    static async criar(cod_turma, nome){
+class CursoController{
+    static async criar(cod_curso, nome){
         try {
-            if(!cod_turma || !nome){
+            if(!cod_curso || !nome){
                 return console.error('Todos os campos devem ser preenchidos.');
             }
-            const turma = await TurmaModel.criar(cod_turma, nome);
-            console.log('Turma criada com sucesso!');
-            return turma;
+            const curso = await CursoModel.criar(cod_curso, nome);
+            console.log('Curso criada com sucesso!');
+            return curso;
 
         } catch (error) {
-            console.log('Erro ao criar turma', error.message);
+            console.log('Erro ao criar curso', error.message);
         }
     }
 
-    static async editar(cod_turma, nome){
+    static async editar(cod_curso, nome){
         try {
-            if(!cod_turma || !nome){
+            if(!cod_curso || !nome){
                 return console.error('Todos os campos devem ser preenchidos.');
             }
-            const turma = await TurmaModel.atualizarTurma(cod_turma, nome);
-            if(turma.length === 0){
-                return console.error('Turma não encontrada.');
+            const curso = await CursoModel.atualizarCurso(cod_curso, nome);
+            if(curso.length === 0){
+                return console.error('Curso não encontrada.');
             }
 
-            console.log('Turma atualizada com sucesso!');
-            return turma
+            console.log('Curso atualizada com sucesso!');
+            return curso
 
         } catch (error) {
-            console.log('Erro ao atualizar turma', error.message);
+            console.log('Erro ao atualizar curso', error.message);
         }
     }
 
-    static async deletarTurma(cod_turma){
+    static async deletarcurso(cod_curso){
         try {
-            const turma = TurmaModel.listarPorCodigo(cod_turma);
-            if(turma.length === 0){
-                return console.error('Turma não encontrada.');
+            const curso = CursoModel.listarPorCodigo(cod_curso);
+            if(curso.length === 0){
+                return console.error('Curso não encontrada.');
 
             }
-            await TurmaModel.deletarTurma(cod_turma);
-            console.log('Turma excluída com sucesso!');
+            await CursoModel.deletarCurso(cod_curso);
+            console.log('Curso excluída com sucesso!');
 
         } catch (error) {
-            console.log('Erro ao deletar turma', error.message);
+            console.log('Erro ao deletar curso', error.message);
         }
     }
 
     static async deletarTodas(){
         try {
-            await TurmaModel.deletarTodas();
-            console.log('Turmas deletadas com sucesso!');
+            await CursoModel.deletarTodas();
+            console.log('cursos deletadas com sucesso!');
         } catch (error) {
-            console.log('Erro ao deletar turma', error.message);
+            console.log('Erro ao deletar curso', error.message);
         }
     }
 
     static async listarTodas(){
         try {
-            const turmas = await TurmaModel.listarTodas();
-            if(turmas.length === 0){
-                return console.log('Nenhuma turma a ser exibida!');
+            const cursos = await CursoModel.listarTodas();
+            if(cursos.length === 0){
+                return console.log('Nenhuma curso a ser exibida!');
             }
-            console.log('Listagem de turmas: ');
-            return turmas;
+            console.log('Listagem de cursos: ');
+            return cursos;
         } catch (error) {
-            console.log('Erro ao listar turmas', error.message);
+            console.log('Erro ao listar cursos', error.message);
         }
     }
 
-    static async listarPorCodigo(cod_turma){
+    static async listarPorCodigo(cod_curso){
         try {
-            const turma = await TurmaModel.listarPorCodigo(cod_turma);
-            if(turma.length === 0){
-                return console.log('Turma não encontrada!');
+            const curso = await CursoModel.listarPorCodigo(cod_curso);
+            if(curso.length === 0){
+                return console.log('curso não encontrada!');
             }
-            console.log('Turma: ');
-            return turma;
+            console.log('curso: ');
+            return curso;
         } catch (error) {
-            console.log('Erro ao listar turma', error.message);
+            console.log('Erro ao listar curso', error.message);
         }
     }
 
-    static async totalTurmas(){
+    static async totalcursos(){
         try {
-            const total = await TurmaModel.totalTurmas();
+            const total = await CursoModel.totalCursos();
             if(total.length === 0){
-                return console.error('Não há turmas a serem exibidas.');
+                return console.error('Não há cursos a serem exibidas.');
             }
             return total;
 
         } catch (error) {
-            console.log('Erro ao encontrar turmas', error.message);
+            console.log('Erro ao encontrar cursos', error.message);
         }
     }
 }
 
-export default TurmaController;
+export default CursoController;
