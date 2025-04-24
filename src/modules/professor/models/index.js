@@ -23,6 +23,11 @@ class ProfessorModel{
         return resultado.rows
     }
     static async deletarProfessor(matricula){
+        const dados = [matricula]
+        const consulta = `delete from aluno`
+        await client.query(consulta,dados)
+    }
+    static async deletarTodos(){
         const consulta = `delete from aluno`
         await client.query(consulta)
     }
