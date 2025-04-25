@@ -1,7 +1,7 @@
 import CursoController from "../controllers/index.js";
 import PromptSync from "prompt-sync";
 
-const input = PromptSync;
+const input = Prompt();
 
 class CursoView{
     static async criar(){

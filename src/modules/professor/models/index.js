@@ -32,7 +32,7 @@ class ProfessorModel{
         await client.query(consulta)
     }
     static async totalProfessor(){
-        const consulta = `select count(email) as total from professor`
+        const consulta = `select count(matricula) as total from professor`
         const resultado = await client.query(consulta)
         return resultado.rows
     }

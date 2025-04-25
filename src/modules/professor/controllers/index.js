@@ -1,24 +1,24 @@
 import ProfessorModel from "../models/index.js"; 
 
 class ProfessorController{
-    static async criar(nome, matricula, cod_turma){
+    static async criar(nome, matricula, cod_curso){
         try {
             if(!nome || !matricula){
                 return console.error('Todos os campos devem ser preenchidos!')
             }
-            const professor = await AlunoModel.criar(nome, matricula, cod_turma)
+            const professor = await AlunoModel.criar(nome, matricula, cod_curso)
             console.log('Professor criado com sucesso!')
             return professor
         } catch (error) {
             console.log('Erro ao criar professor:', error.message)
         }
     }
-    static async editar(nome, matricula, cod_turma){
+    static async editar(nome, matricula, cod_curso){
         try {
             if(!nome || !matricula){
                 return console.error('Todos os campos devem ser preenchidos!')
             }
-            const professor = await ProfessorModel.atualizarProfessor(nome, matricula, cod_turma)
+            const professor = await ProfessorModel.atualizarProfessor(nome, matricula, cod_curso)
             if(professor.length === 0){
                 return console.error('Professor não encontrado!')
             }

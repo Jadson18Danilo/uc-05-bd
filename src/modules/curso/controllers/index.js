@@ -38,7 +38,6 @@ class CursoController{
             const curso = CursoModel.listarPorCodigo(cod_curso);
             if(curso.length === 0){
                 return console.error('Curso não encontrada.');
-
             }
             await CursoModel.deletarCurso(cod_curso);
             console.log('Curso excluída com sucesso!');
@@ -83,16 +82,27 @@ class CursoController{
         }
     }
 
-    static async totalcursos(){
+    static async totalCursos(){
         try {
             const total = await CursoModel.totalCursos();
             if(total.length === 0){
                 return console.error('Não há cursos a serem exibidas.');
             }
             return total;
-
         } catch (error) {
             console.log('Erro ao encontrar cursos', error.message);
+        }
+    }
+    static async listarAlunosPorCurso(cod_curso){
+        try {
+            const curso = await CursoModel.listarProfessoresPorCurso(cod_curso)
+            if(curso.length === 0){
+                return console.log('Professor não encontrado!')
+            }
+            console('Professores: ')
+            //termnar aqui
+        } catch (error) {
+            
         }
     }
 }

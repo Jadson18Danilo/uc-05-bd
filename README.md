@@ -134,3 +134,9 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para d
 ## Autor
 
 Desenvolvido como parte do curso de Banco de Dados.
+
+## Conveção
+
+- Para nome dos metodos: camel case
+- Para o nome de variaveis: snake_case
+- Para o nome de classes: PascalCase
